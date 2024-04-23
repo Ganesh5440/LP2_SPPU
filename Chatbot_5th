@@ -1,0 +1,26 @@
+import random
+
+responses = {
+    "greeting": ["Hello!", "Hi!", "Welcome!"],
+    "farewell": ["Goodbye!", "See you later!", "Take care!"],
+    "thanks": ["You're welcome!", "No problem!", "My pleasure!"],
+    "default": ["I'm sorry, I didn't understand.", "Could you please rephrase?"]
+}
+
+print("TBCO21153 Patil Ganesh")
+
+def generate_response(user_input):
+    user_input = user_input.lower()
+    if "hello" in user_input or "hi" in user_input:
+        return random.choice(responses["greeting"])
+    elif "goodbye" in user_input or "bye" in user_input:
+        return random.choice(responses["farewell"])
+    elif "thank" in user_input:
+        return random.choice(responses["thanks"])
+    else:
+        return random.choice(responses["default"])
+
+while True:
+    user_input = input("User: ")
+    bot_response = generate_response(user_input)
+    print("Bot:", bot_response)
